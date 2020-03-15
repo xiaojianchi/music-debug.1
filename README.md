@@ -1,24 +1,3 @@
-# my-music
-
-## Project setup
-```
-yarn install
-```
-
-### Compiles and hot-reloads for development
-```
-yarn serve
-```
-
-### Compiles and minifies for production
-```
-yarn build
-```
-
-### Lints and fixes files
-```
-yarn lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+## 版本概要： 
+1. 完成了 Scss 的 编写
+2. 添加 sass / sass-loader 来 支持 scss的编译，以及组件内使用 scss语法
