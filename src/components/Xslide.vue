@@ -54,9 +54,17 @@
         },
         methods: {
             init() {
+                /*
+                 老师， 如果这段代码在 new BScroll() 之前执行，就能正确的计算出 slide-group的宽度
+
+                 反之，就会得到 slide-group , slide-item 的  width 为 0
+
+                 这个应该是插件的计算规则，你主要帮我看一下底下的 CSS，我主要不明白那里
+                 */
                 const childs = this.$refs.slideGroup.children
                 for(let i = 0; i < childs.length; i++)
                     addClass(childs[i],'slide-item')
+
 
                 this.slide = new BScroll(this.$refs.slide, {
                     scrollY: false,
@@ -118,6 +126,10 @@
   .slide-banner {
     position: relative;
     .slide {
+      /*
+       横向滚动 父容器必须有固定宽度，子容器靠内容撑开才能有滚动效果，但是我这里根本没给父容器宽度，
+       加了 border 观察了一下，发现确实被 slide-group 撑开了.那为什么还有滚动的效果？
+      */
       min-height: 1px;
       overflow: hidden;
 
@@ -126,6 +138,10 @@
 
         .slide-item {
           flex-shrink: 0;
+          /*
+          这里的宽度设置为什么能生效？ 父级元素的宽度根本没有设置啊
+          如果参照 Slide 插件 后来加的 style，那因该是 1366* 5 才对啊 (我抓了5张图片)
+           */
           width: 100%;
 
           a {

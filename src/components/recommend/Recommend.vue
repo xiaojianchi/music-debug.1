@@ -1,61 +1,43 @@
 <template>
-  <div class = "recommend" ref = "recommend">
-    <!--轮播图-->
+  <div class="recommend">
     <div class="recommend-content">
-    <div v-if = "slideItems.length" class="slider-wrapper">
-    <slider>
-      <div v-for = "item in slideItems" :key = "item.id">
-        <a :href = item.linkUrl>
-          <img :src = "item.picUrl">
-        </a>
+      <div v-if="sliderItems.length" class="slider-wrapper">
+        <my-slider>
+          <div v-for="item in sliderItems" :key="item.id">
+            <a :href="item.linkUrl">
+              <img :src = "item.picUrl">
+            </a>
+          </div>
+        </my-slider>
       </div>
-    </slider>
-    </div>
     </div>
   </div>
 </template>
 
 <script>
     import {getSlider} from "@/api/recommend";
-    import slider from "@/base/slider/slider";
-
+    import Xslide from "@/components/Xslide";
     export default {
         data() {
             return {
-                slideItems: []
+                sliderItems: []
             }
         },
         created() {
             getSlider()
                 .then(result => {
-                    console.log(result);
-                    this.slideItems = result;
+                    this.sliderItems = result.splice(1,5);
                 })
-                .catch(err => console.log(err));
-
+                .catch(error => {
+                    console.log(error)
+                })
         },
         components: {
-            slider
+            'my-slider': Xslide
         }
     }
 </script>
 
-<style scoped lang="scss">
-  @use "~common/scss/veriables" as *;
+<style scoped lang = "scss">
 
-  .recommend {
-    position: fixed;
-    width: 100%;
-    top: 88px;
-    bottom: 0;
-    .recommend-content {
-      height: 100%;
-      overflow: hidden;
-      .slider-wrapper {
-        position: relative;
-        width: 100%;
-        overflow: hidden;
-      }
-    }
-  }
 </style>
