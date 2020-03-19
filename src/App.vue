@@ -1,19 +1,22 @@
 <template>
   <div>
-    <span class="iconfont icon-ok"></span>
-    <span class="iconfont icon-add"></span>
-    <span class="iconfont icon-clear"></span>
+    <!--<Header />-->
+    <!--<Tab />-->
+
+    <router-view />
   </div>
 </template>
 
 <script>
 
-
 export default {
-
+    // components: {
+    //     Header,
+    //     Tab
+    // }
 }
 </script>
 
-<style scoped lang="scss">
+<style scoped>
 
 </style>
