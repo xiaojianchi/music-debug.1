@@ -28,8 +28,8 @@
      veriables.$color
   */
   // @import "~common/scss/veriables.scss";
-  @use "~common/scss/veriables" as *;
-  @use "~common/scss/mixin" as *;
+  @use "@common/scss/variable" as *;
+  @use "@common/scss/mixin" as *;
 
   .m-header {
     position: relative;

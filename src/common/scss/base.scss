@@ -1,4 +1,4 @@
-@import "veriables";
+@import "variable";
 
 // 初始化背景颜色,字体
 body,html {
@@ -6,5 +6,5 @@ body,html {
   font-family: 'PingFang SC', 'STHeitiSC-Light', 'Helvetica-Light', arial, sans-serif, 'Droid Sans Fallback';
   user-select: none;
   -webkit-tap-highlight-color: transparent;
-  //background-color: $color-background;
+  background-color: $color-background;
 }
